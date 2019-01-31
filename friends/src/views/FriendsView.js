@@ -1,18 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { getFriends } from '../store/actions';
+
 import FriendsList from '../components/FriendsList';
 import FriendForm from '../components/FriendForm';
 
-const FriendsView = props => {
+class FriendsView extends React.Component {
 
-  return (
-    <div>
-      Friends View
-      <FriendsList friends={props.friends} />
-      <FriendForm />
-    </div>
-  );
+  componentDidMount() {
+
+  }
+
+  render() {
+    return (
+      <div>
+        Friends View
+        <FriendsList friends={this.props.friends} />
+        <FriendForm />
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = (state) => {
@@ -24,5 +32,5 @@ const mapStateToProps = (state) => {
 
 export default connect (
   mapStateToProps,
-  null // put action creators here
+  getFriends
 )(FriendsView);
