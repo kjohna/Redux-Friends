@@ -8,7 +8,7 @@ const FriendsList = props => {
   );
 
   return(
-    <div>
+    <div className="friends-list">
       Friends List:
       {friendsList}
     </div>

@@ -2,20 +2,7 @@ import { FETCH_FRIENDS_START, FETCH_FRIENDS_SUCCESS, FETCH_FRIENDS_FAILURE } fro
 
 const initialState = {
   fetchingFriends: false,
-  friends: [
-    {
-      id: 1,
-      name: 'testfriend',
-      age: 30,
-      email: 'ben@lambdaschool.com',
-    },
-    {
-      id: 2,
-      name: 'testfriend2',
-      age: 45,
-      email: 'austen@lambdaschool.com',
-    }
-  ],
+  friends: [],
   error: null
 }
 
