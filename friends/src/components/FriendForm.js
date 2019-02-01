@@ -3,7 +3,7 @@ import React from 'react';
 const FriendForm = props => {
   return (
     <form
-      onSubmit={e => props.addFriend(e, props.friendFormData)}
+      onSubmit={e => props.addFriend(e)}
     >
       FriendForm:
       <input 

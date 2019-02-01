@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getFriends } from '../store/actions';
+import { getFriends, addFriend } from '../store/actions';
 
 import FriendsList from '../components/FriendsList';
 import FriendForm from '../components/FriendForm';
@@ -24,8 +24,12 @@ class FriendsView extends React.Component {
     }
   };
  
-
   componentDidMount() {
+    this.props.getFriends();
+  }
+
+  componentDidUpdate() {
+    console.log("freindsView CDU");
 
   }
 
@@ -42,9 +46,11 @@ class FriendsView extends React.Component {
     });
   }
 
-  addFriend = (e, friendData) => {
+  addFriend = (e) => { //async (e) => {
     e.preventDefault();
-    console.log("Add Friend: ", friendData);
+    // console.log("Add Friend: ", this.state.friendFormData);
+    // const res = await this.props.addFriend(this.state.friendFormData);
+    this.props.addFriend(this.state.friendFormData);
   }
 
   updateFriend = () => {
@@ -71,11 +77,16 @@ class FriendsView extends React.Component {
 const mapStateToProps = (state) => {
   return {
     friends: state.friends,
-    error: state.error
+    error: state.error,
+    addingFriendSuccess: state.addingFriendSuccess
+
   }
 }
 
 export default connect (
   mapStateToProps,
-  getFriends
+  { 
+    getFriends, 
+    addFriend
+  }
 )(FriendsView);
